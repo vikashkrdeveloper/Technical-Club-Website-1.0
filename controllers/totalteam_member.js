@@ -4,14 +4,16 @@ const totalteam_member = async (req, res) => {
         const finddata = await database.find();
         const datas = []
         finddata.map((element) => {
-            datas.push({ name: element.name, userid: element.userid, team_leader: element.team_leader, member1: element.member1, member2: element.member2, member3: element.member3 })
+            datas.push({ _id: element._id, teamname: element.name, participant: element.userid, email: element.emailid, registration: element.registrationno, member1: element.member1, member2: element.member2, member3: element.member3, teamleadername: element.team_leader })
 
         })
         res.status(200).send(datas);
+        return;
 
     } catch (error) {
         console.log('Some technical issue');
         res.status(403).send("Some technical issue" + error)
+        return;
     }
 }
 module.exports = totalteam_member

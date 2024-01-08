@@ -11,10 +11,15 @@ const UserdataMiddleware = async (req, res, next) => {
         const datashort = {
             name: rootUser.name,
             userid: rootUser.userid,
-            role:rootUser.role
+            registrationNumber:rootUser.registrationno,
+            emailid:rootUser.emailid,
+            team_leader:rootUser.team_leader,
+            member1:rootUser.member1,
+            member2:rootUser.member2,
+            member3:rootUser.member3
         }
         req.token = token;
-        req.rootUser = datashort;
+        req.rootUser =datashort;
         req.userId = rootUser._id;
         next();
     } catch (error) {

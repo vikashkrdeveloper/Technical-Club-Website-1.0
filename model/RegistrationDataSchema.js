@@ -23,30 +23,40 @@ const RegistrationDataSchema = new database.Schema({
         trim: true,
         default: 0
     },
-    teamName: {
+    registrationno: {
+        type: Number,
+        require: true,
+        trim: true,
+        unique: true
+    }, emailid: {
         type: String,
         require: true,
-        trim: true
+        trim: true,
+        lowercase: true
     },
     member1: {
         type: String,
         require: true,
-        trim: true
+        trim: true,
+        lowercase: true
     },
     member2: {
         type: String,
         require: true,
-        trim: true
+        trim: true,
+        lowercase: true
     },
     member3: {
         type: String,
         require: true,
-        trim: true
+        trim: true,
+        lowercase: true
     },
     team_leader: {
         type: String,
         require: true,
-        trim: true
+        trim: true,
+        lowercase: true
     },
 
     tokens: [
