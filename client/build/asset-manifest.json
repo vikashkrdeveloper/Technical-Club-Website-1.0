@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.3239c3dc.css",
-    "main.js": "/static/js/main.0ff006fe.js",
+    "main.js": "/static/js/main.bcfc8b9f.js",
     "static/media/video.mp4": "/static/media/video.9973d5cf8e26fc2cec05.mp4",
     "static/media/img10.jpeg": "/static/media/img10.d32c4e4023d74c1aa198.jpeg",
     "static/media/img5.jpeg": "/static/media/img5.932d226c9393bd0010a3.jpeg",
@@ -12,14 +12,15 @@
     "static/media/img6.jpeg": "/static/media/img6.ecbce0f91bccdd070227.jpeg",
     "static/media/AnnualSport.jpeg": "/static/media/AnnualSport.9e092139a997009001d4.jpeg",
     "static/media/img7.jpeg": "/static/media/img7.9e092139a997009001d4.jpeg",
+    "static/media/logo design.pdf": "/static/media/logo design.816fd5a7ac1335aac144.pdf",
     "static/media/conding.webp": "/static/media/conding.0a4c8a04838f22b39010.webp",
     "static/media/icons8-calendar.gif": "/static/media/icons8-calendar.0bb6650b392c2b6d76f1.gif",
     "index.html": "/index.html",
     "main.3239c3dc.css.map": "/static/css/main.3239c3dc.css.map",
-    "main.0ff006fe.js.map": "/static/js/main.0ff006fe.js.map"
+    "main.bcfc8b9f.js.map": "/static/js/main.bcfc8b9f.js.map"
   },
   "entrypoints": [
     "static/css/main.3239c3dc.css",
-    "static/js/main.0ff006fe.js"
+    "static/js/main.bcfc8b9f.js"
   ]
 }
