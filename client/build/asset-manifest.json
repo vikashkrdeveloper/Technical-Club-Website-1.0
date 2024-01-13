@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.3239c3dc.css",
-    "main.js": "/static/js/main.6f8a8c5a.js",
+    "main.js": "/static/js/main.dc6def42.js",
     "static/media/video.mp4": "/static/media/video.9973d5cf8e26fc2cec05.mp4",
     "static/media/dark blue geometric live game twitter post.png": "/static/media/dark blue geometric live game twitter post.7b63c93f8da4df0bd04d.png",
     "static/media/Blue White Modern Quiz World Wide Web Instagram Post.png": "/static/media/Blue White Modern Quiz World Wide Web Instagram Post.d3f1fefc538ffd2aa8f4.png",
@@ -21,10 +21,10 @@
     "static/media/icons8-calendar.gif": "/static/media/icons8-calendar.0bb6650b392c2b6d76f1.gif",
     "index.html": "/index.html",
     "main.3239c3dc.css.map": "/static/css/main.3239c3dc.css.map",
-    "main.6f8a8c5a.js.map": "/static/js/main.6f8a8c5a.js.map"
+    "main.dc6def42.js.map": "/static/js/main.dc6def42.js.map"
   },
   "entrypoints": [
     "static/css/main.3239c3dc.css",
-    "static/js/main.6f8a8c5a.js"
+    "static/js/main.dc6def42.js"
   ]
 }
