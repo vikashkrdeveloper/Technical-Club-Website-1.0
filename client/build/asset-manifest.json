@@ -1,9 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.3239c3dc.css",
-    "main.js": "/static/js/main.34e6c56c.js",
+    "main.js": "/static/js/main.019f3b4a.js",
     "static/media/video.mp4": "/static/media/video.9973d5cf8e26fc2cec05.mp4",
-    "static/media/Magenta Neon Modern Gaming Poster.png": "/static/media/Magenta Neon Modern Gaming Poster.6de7693fec434b2000d1.png",
     "static/media/dark blue geometric live game twitter post.png": "/static/media/dark blue geometric live game twitter post.7b63c93f8da4df0bd04d.png",
     "static/media/Blue White Modern Quiz World Wide Web Instagram Post.png": "/static/media/Blue White Modern Quiz World Wide Web Instagram Post.d3f1fefc538ffd2aa8f4.png",
     "static/media/Floral Atelier Logo Business design .png": "/static/media/Floral Atelier Logo Business design .d4328bbf960f8e65ee0b.png",
@@ -16,15 +15,16 @@
     "static/media/img6.jpeg": "/static/media/img6.ecbce0f91bccdd070227.jpeg",
     "static/media/AnnualSport.jpeg": "/static/media/AnnualSport.9e092139a997009001d4.jpeg",
     "static/media/img7.jpeg": "/static/media/img7.9e092139a997009001d4.jpeg",
+    "static/media/WhatsApp Image 2024-01-14 at 01.03.20_002c41bf.jpg": "/static/media/WhatsApp Image 2024-01-14 at 01.03.20_002c41bf.24dc94b55d9151246562.jpg",
     "static/media/logo design.pdf": "/static/media/logo design.816fd5a7ac1335aac144.pdf",
     "static/media/conding.webp": "/static/media/conding.0a4c8a04838f22b39010.webp",
     "static/media/icons8-calendar.gif": "/static/media/icons8-calendar.0bb6650b392c2b6d76f1.gif",
     "index.html": "/index.html",
     "main.3239c3dc.css.map": "/static/css/main.3239c3dc.css.map",
-    "main.34e6c56c.js.map": "/static/js/main.34e6c56c.js.map"
+    "main.019f3b4a.js.map": "/static/js/main.019f3b4a.js.map"
   },
   "entrypoints": [
     "static/css/main.3239c3dc.css",
-    "static/js/main.34e6c56c.js"
+    "static/js/main.019f3b4a.js"
   ]
 }
