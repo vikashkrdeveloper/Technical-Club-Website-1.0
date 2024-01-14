@@ -32,12 +32,18 @@ const ParticipantmemberList = require('../controllers/ParticipantmemberList');
 const techFormcontroller = require('../controllers/techFormcontroller');
 const HackathonRegistrationController = require('../controllers/HackathonRegistrationController');
 const HackathonFormdatacontroller = require('../controllers/HackathonFormdatacontroller');
+const CodingFormdatacontroller = require('../controllers/CodingFormdatacontroller');
+const CodingRegistrationController = require('../controllers/CodingRegistrationController');
+const Codingparticipantdatadeletecontrollers = require('../controllers/Codingparticipantdatadeletecontrollers');
+const Quizparticipantdatadeletecontrollers = require('../controllers/Quizparticipantdatadeletecontrollers');
 const techFormdatacontroller = require('../controllers/techFormdatacontroller');
 const UserdataMiddleware = require('../middleware/UserdataMiddleware');
 const AuthadmindataMiddleware = require('../middleware/AuthadmindataMiddleware');
 const mailSend = require('../Mailmessage/mailSend');
 
 const multer = require('multer');
+const QuizRegistrationController = require('../controllers/QuizRegistrationController');
+const QuizFormdatacontroller = require('../controllers/QuizFormdatacontroller');
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
@@ -57,8 +63,12 @@ router.get('/api/club/created/data/', ClubDataApiControllers)
 
 router.get('/api/team/register/data', techFormdatacontroller);
 router.get('/api/team/hackathon/register/data', HackathonFormdatacontroller);
+router.get('/api/participant/coding/register/data', CodingFormdatacontroller);
+router.get('/api/participant/quiz/register/data', QuizFormdatacontroller);
 router.post('/participant/bgmi/tech/form', techFormcontroller);
 router.post('/participant/hackathon/tech/form', HackathonRegistrationController);
+router.post('/participant/coding/tech/form',upload.single('file'), CodingRegistrationController);
+router.post('/participant/quiz/tech/form',upload.single('file'), QuizRegistrationController);
 
 router.post('/participants/registration', RegistrationControllers);
 router.post('/participants/member/registration', ParticipantMemberRegistration);
@@ -75,6 +85,8 @@ router.delete('/api/answer/delete/id/:id', answerdatadeletedControlers)
 router.delete('/api/question/type/numerical/delete/id/:id', questiondatadeletedControlers)
 router.delete('/api/question/type/mcq/delete/id/:id', questiondatamcqdeletedControlers)
 router.delete('/api/total/participant/delete/id/:id', Totalparticipantdatadeletecontrollers)
+router.delete('/api/coding/participant/delete/id/:id', Codingparticipantdatadeletecontrollers)
+router.delete('/api/quiz/participant/delete/id/:id', Quizparticipantdatadeletecontrollers)
 router.all('*', ErrorControllers);
 
 module.exports = router
