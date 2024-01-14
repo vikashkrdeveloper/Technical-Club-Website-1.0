@@ -1,4 +1,4 @@
- const database = require('../model/RegistrationDataSchema');
+ const database = require('../model/ParticipantRegistration');
 const Totalparticipantdatadeletecontrollers = async (req, res) => {
     try {
         const id = req.params.id;

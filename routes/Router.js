@@ -26,12 +26,22 @@ const admindatacontroler = require('../controllers/admindatacontroler');
 const Authadmindatacontroler = require('../controllers/Authadmindatacontroler');
 const ClubCreateControllers = require('../controllers/ClubCreateControllers');
 const Adminforgetpasswordcontrollers = require('../controllers/Adminforgetpasswordcontrollers');
+const ParticipantMemberRegistration = require('../controllers/ParticipantMemberRegistration');
 const ClubDataApiControllers = require('../controllers/ClubDataApiControllers');
+const ParticipantmemberList = require('../controllers/ParticipantmemberList');
+const techFormcontroller = require('../controllers/techFormcontroller');
+const techFormdatacontroller = require('../controllers/techFormdatacontroller');
 const UserdataMiddleware = require('../middleware/UserdataMiddleware');
 const AuthadmindataMiddleware = require('../middleware/AuthadmindataMiddleware');
 const mailSend = require('../Mailmessage/mailSend');
+
+const multer = require('multer');
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
 router.get('/', mailSend);
 router.get('/users/data', UserdataMiddleware, UserdataControllers)
+router.get('/api/participant/member/list', ParticipantmemberList)
 router.get('/api/participant/question/answer', QuestionAnswerApiControllers)
 router.get('/api/participant/question/answer/total/count', QuestiontatalcountAnswerApiControllers)
 router.get('/api/participant/question/answer/total/userid/:userid', QuestiontatalAttamptAnswerApiControllers)
@@ -41,15 +51,20 @@ router.get('/api/logout', LogOutControllers)
 router.get('/api/total-teams/members/', totalteam_member)
 router.get('/api/admin/data', admindatacontroler)
 router.get('/api/auth/admin/data', AuthadmindataMiddleware, Authadmindatacontroler)
-router.get('/api/club/create/data/', ClubDataApiControllers)
+router.get('/api/club/created/data/', ClubDataApiControllers)
+
+router.get('/api/team/register/data', techFormdatacontroller);
+router.post('/users/tech/form', techFormcontroller);
+
 router.post('/participants/registration', RegistrationControllers);
+router.post('/participants/member/registration', ParticipantMemberRegistration);
 router.post('/admin/registration', AdminRegistrationControllers);
 router.post('/login', LoginControllers);
 router.post('/admin/login', AdminLoginControllers);
 router.post('/coding-contest/api/answer/participant', QuestionAnswerControllers)
 router.post('/coding-contest/api/question-mcq/', QuestionmcqControllers)
 router.post('/coding-contest/api/question-numerical/', QuestionnumbericalControllers)
-router.post('/club/create/api/data/', ClubCreateControllers)
+router.post('/club/create/api/data/', upload.single('contest_poster'), ClubCreateControllers)
 router.put('/forget/password/', forgetpasswordcontrollers)
 router.put('/admin/forget/password/', Adminforgetpasswordcontrollers)
 router.delete('/api/answer/delete/id/:id', answerdatadeletedControlers)
