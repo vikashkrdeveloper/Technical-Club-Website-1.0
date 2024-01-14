@@ -30,6 +30,8 @@ const ParticipantMemberRegistration = require('../controllers/ParticipantMemberR
 const ClubDataApiControllers = require('../controllers/ClubDataApiControllers');
 const ParticipantmemberList = require('../controllers/ParticipantmemberList');
 const techFormcontroller = require('../controllers/techFormcontroller');
+const HackathonRegistrationController = require('../controllers/HackathonRegistrationController');
+const HackathonFormdatacontroller = require('../controllers/HackathonFormdatacontroller');
 const techFormdatacontroller = require('../controllers/techFormdatacontroller');
 const UserdataMiddleware = require('../middleware/UserdataMiddleware');
 const AuthadmindataMiddleware = require('../middleware/AuthadmindataMiddleware');
@@ -54,7 +56,9 @@ router.get('/api/auth/admin/data', AuthadmindataMiddleware, Authadmindatacontrol
 router.get('/api/club/created/data/', ClubDataApiControllers)
 
 router.get('/api/team/register/data', techFormdatacontroller);
-router.post('/users/tech/form', techFormcontroller);
+router.get('/api/team/hackathon/register/data', HackathonFormdatacontroller);
+router.post('/participant/bgmi/tech/form', techFormcontroller);
+router.post('/participant/hackathon/tech/form', HackathonRegistrationController);
 
 router.post('/participants/registration', RegistrationControllers);
 router.post('/participants/member/registration', ParticipantMemberRegistration);
