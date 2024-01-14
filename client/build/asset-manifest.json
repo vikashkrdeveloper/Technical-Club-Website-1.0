@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.3239c3dc.css",
-    "main.js": "/static/js/main.0e318577.js",
+    "main.js": "/static/js/main.c7e9d786.js",
     "static/media/video.mp4": "/static/media/video.9973d5cf8e26fc2cec05.mp4",
     "static/media/dark blue geometric live game twitter post.png": "/static/media/dark blue geometric live game twitter post.7b63c93f8da4df0bd04d.png",
     "static/media/Technical_Quiz_Competition_Rule_Book.pdf": "/static/media/Technical_Quiz_Competition_Rule_Book.bb8aa9ca9c843003bf2c.pdf",
@@ -25,10 +25,10 @@
     "static/media/icons8-calendar.gif": "/static/media/icons8-calendar.0bb6650b392c2b6d76f1.gif",
     "index.html": "/index.html",
     "main.3239c3dc.css.map": "/static/css/main.3239c3dc.css.map",
-    "main.0e318577.js.map": "/static/js/main.0e318577.js.map"
+    "main.c7e9d786.js.map": "/static/js/main.c7e9d786.js.map"
   },
   "entrypoints": [
     "static/css/main.3239c3dc.css",
-    "static/js/main.0e318577.js"
+    "static/js/main.c7e9d786.js"
   ]
 }
