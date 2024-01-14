@@ -1,13 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.3239c3dc.css",
-    "main.js": "/static/js/main.dc6def42.js",
+    "main.js": "/static/js/main.1894f650.js",
     "static/media/video.mp4": "/static/media/video.9973d5cf8e26fc2cec05.mp4",
     "static/media/dark blue geometric live game twitter post.png": "/static/media/dark blue geometric live game twitter post.7b63c93f8da4df0bd04d.png",
+    "static/media/Technical_Quiz_Competition_Rule_Book.pdf": "/static/media/Technical_Quiz_Competition_Rule_Book.bb8aa9ca9c843003bf2c.pdf",
     "static/media/Blue White Modern Quiz World Wide Web Instagram Post.png": "/static/media/Blue White Modern Quiz World Wide Web Instagram Post.d3f1fefc538ffd2aa8f4.png",
+    "static/media/Coding_Competition_Rule _Book.pdf": "/static/media/Coding_Competition_Rule _Book.78bd917edf3a03e9a6fe.pdf",
     "static/media/Floral Atelier Logo Business design .png": "/static/media/Floral Atelier Logo Business design .d4328bbf960f8e65ee0b.png",
     "static/media/img10.jpeg": "/static/media/img10.d32c4e4023d74c1aa198.jpeg",
     "static/media/img5.jpeg": "/static/media/img5.932d226c9393bd0010a3.jpeg",
+    "static/media/Hackathon_Rules.pdf": "/static/media/Hackathon_Rules.b6b0200000fe5ae6408f.pdf",
     "static/media/img4.jpeg": "/static/media/img4.f45abc3021e0bf060503.jpeg",
     "static/media/img9.jpeg": "/static/media/img9.1df6de77783279ad5136.jpeg",
     "static/media/img8.jpeg": "/static/media/img8.fb37aedafe7c970d99e4.jpeg",
@@ -21,10 +24,10 @@
     "static/media/icons8-calendar.gif": "/static/media/icons8-calendar.0bb6650b392c2b6d76f1.gif",
     "index.html": "/index.html",
     "main.3239c3dc.css.map": "/static/css/main.3239c3dc.css.map",
-    "main.dc6def42.js.map": "/static/js/main.dc6def42.js.map"
+    "main.1894f650.js.map": "/static/js/main.1894f650.js.map"
   },
   "entrypoints": [
     "static/css/main.3239c3dc.css",
-    "static/js/main.dc6def42.js"
+    "static/js/main.1894f650.js"
   ]
 }
