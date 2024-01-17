@@ -9,7 +9,7 @@ const QuestionnumbericalControllers = async (req, res) => {
         if (questionname) {
             const findnum = await database.findOne({ questionnumber });
             if (findnum) {
-                res.status(401).send('Question number already exist'); 
+                res.status(402).send('Question number already exist'); 
                 return;
 
             } else {

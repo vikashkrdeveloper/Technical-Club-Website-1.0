@@ -24,6 +24,10 @@ const QuestionAnswerDataSchema = new database.Schema(
       lowercase: true,
       trim: true,
     },
+    correctquestionanswer: {
+      type: String,
+      trim: true
+    },
     submittime: {
       type: Array,
       trim: true,

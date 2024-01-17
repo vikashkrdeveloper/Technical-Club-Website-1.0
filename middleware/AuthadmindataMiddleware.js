@@ -14,7 +14,7 @@ const AuthadmindataMiddleware = async (req, res, next) => {
         next();
 
     } catch (error) {
-        res.status(403).send("Admin not login");
+        res.status(403).send("Admin not login" );
     }
 
 }

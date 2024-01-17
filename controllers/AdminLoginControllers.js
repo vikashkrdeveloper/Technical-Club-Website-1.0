@@ -6,7 +6,6 @@ const AdminLoginControllers = async (req, res) => {
         if (adminid && password) {
             const findadminid = await database.findOne({ adminid });
             if (findadminid) {
-
                 const hashpassword = await findadminid.password;
                 const passwordverify = await conformpasswordfun(password, hashpassword);
                 if (passwordverify) {
@@ -29,7 +28,7 @@ const AdminLoginControllers = async (req, res) => {
 
     } catch (error) {
         console.log('Some technical issue');
-        res.status(403).send('Some technical issue'+error);
+        res.status(403).send('Some technical issue' + error);
     }
 }
 module.exports = AdminLoginControllers;

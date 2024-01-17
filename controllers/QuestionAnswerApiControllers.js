@@ -4,7 +4,7 @@ const QuestionAnswerApiControllers = async (req, res) => {
         const finddata = await database.find();
         const data = [];
         finddata.forEach((element) => {
-            data.push({ _id: element._id, questionid: element.questionid, username: element.username, userid: element.userid, questionname: element.questionname, submittime: element.submittime, answer: element.answer })
+            data.push({ _id: element._id, questionid: element.questionid, username: element.username, userid: element.userid, questionname: element.questionname, submittime: element.submittime, answer: element.answer, correctanswer: element.correctquestionanswer })
         })
         res.status(200).send(data);
         return;

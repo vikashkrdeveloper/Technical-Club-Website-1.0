@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.3239c3dc.css",
-    "main.js": "/static/js/main.d2cc83de.js",
+    "main.js": "/static/js/main.057c7379.js",
     "static/media/video.mp4": "/static/media/video.9973d5cf8e26fc2cec05.mp4",
     "static/media/dark blue geometric live game twitter post.png": "/static/media/dark blue geometric live game twitter post.7b63c93f8da4df0bd04d.png",
     "static/media/Technical_Quiz_Competition_Rule_Book.pdf": "/static/media/Technical_Quiz_Competition_Rule_Book.bb8aa9ca9c843003bf2c.pdf",
@@ -10,6 +10,7 @@
     "static/media/bgmi_rule_book.pdf": "/static/media/bgmi_rule_book.136f5eee4cad53a5b872.pdf",
     "static/media/LogoDesignRuleBook.pdf": "/static/media/LogoDesignRuleBook.f0fa8dd83533155131f0.pdf",
     "static/media/Floral Atelier Logo Business design .png": "/static/media/Floral Atelier Logo Business design .d4328bbf960f8e65ee0b.png",
+    "static/media/vikashdeveloper.jpg": "/static/media/vikashdeveloper.8cf904dc30d3bd56a5ab.jpg",
     "static/media/img10.jpeg": "/static/media/img10.d32c4e4023d74c1aa198.jpeg",
     "static/media/img5.jpeg": "/static/media/img5.932d226c9393bd0010a3.jpeg",
     "static/media/Hackathon_Rules.pdf": "/static/media/Hackathon_Rules.b6b0200000fe5ae6408f.pdf",
@@ -25,10 +26,10 @@
     "static/media/icons8-calendar.gif": "/static/media/icons8-calendar.0bb6650b392c2b6d76f1.gif",
     "index.html": "/index.html",
     "main.3239c3dc.css.map": "/static/css/main.3239c3dc.css.map",
-    "main.d2cc83de.js.map": "/static/js/main.d2cc83de.js.map"
+    "main.057c7379.js.map": "/static/js/main.057c7379.js.map"
   },
   "entrypoints": [
     "static/css/main.3239c3dc.css",
-    "static/js/main.d2cc83de.js"
+    "static/js/main.057c7379.js"
   ]
 }

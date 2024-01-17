@@ -1,14 +1,14 @@
-const database = require("../model/QuestionNumericalAnswer");
-const QuestionAnswerControllers = async (req, res) => {
+const database = require("../model/QuestionAnswerDataSchema");
+const QuizQuestionAnswerControllers = async (req, res) => {
     try {
-        const { username, userid, questionid, questionname, answer, submittime } = req.body;
-        if (username && userid && questionname && questionid && answer  && submittime) {
+        const { username, userid, questionid, questionname, answer, correctquestionanswer, submittime } = req.body;
+        if (username && userid && questionname && questionid && answer && correctquestionanswer && submittime) {
             const check_question_submit_or_not = await database.findOne({ questionid, username, userid });
             if (check_question_submit_or_not) {
                 res.status(402).send("Already submit");
                 return;
             } else {
-                const insertdata = await new database({ username, userid, questionid, questionname, answer, submittime });
+                const insertdata = await new database({ username, userid, questionid, correctquestionanswer, questionname, answer, submittime });
                 await insertdata.save();
                 res.status(200).send("Question Done");
                 return;
@@ -24,4 +24,4 @@ const QuestionAnswerControllers = async (req, res) => {
         return;
     }
 };
-module.exports = QuestionAnswerControllers;
+module.exports = QuizQuestionAnswerControllers;
