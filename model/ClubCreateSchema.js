@@ -11,6 +11,10 @@ const ClubCreateSchema = new database.Schema({
         lowercase: true,
         trim: true
     },
+    clubdescription:{
+        type: String,
+        trim: true
+    },
     image: {
         data: Buffer,
         contentType: String

@@ -1,69 +1,85 @@
 const express = require('express');
 const router = express.Router();
+
 const HomeControllers = require('../controllers/HomeControllers');
 const ErrorControllers = require('../controllers/ErrorControllers');
-const QuizLoginControllers = require('../controllers/QuizLoginControllers');
-const RegistrationControllers = require('../controllers/RegistrationControllers');
+const QuizLoginControllers = require('../controllers/Club/Technical/Quiz/QuizLoginControllers');
+const RegistrationControllers = require('../controllers/Forms/RegistrationControllers');
 const UserdataControllers = require('../controllers/UserdataControllers');
 const forgetpasswordcontrollers = require('../controllers/forgetpasswordcontrollers');
-const QuestionAnswerControllers = require('../controllers/QuestionAnswerControllers');
-const QuestionAnswerApiControllers = require('../controllers/QuestionAnswerApiControllers');
-const QuestionmcqControllers = require('../controllers/QuestionmcqControllers');
-const McqQuestionApiControllers = require('../controllers/McqQuestionApiControllers');
-const QuestionnumbericalControllers = require('../controllers/QuestionnumbericalControllers');
-const NumericalQuestionApiControllers = require('../controllers/NumericalQuestionApiControllers');
-const QuestiontatalcountAnswerApiControllers = require('../controllers/QuestiontatalcountAnswerApiControllers');
+const QuestionAnswerControllers = require('../controllers/Question/QuestionAnswerControllers');
+const QuestionAnswerApiControllers = require('../controllers/Question/QuestionAnswerApiControllers');
+const QuestionmcqControllers = require('../controllers/Question/QuestionmcqControllers');
+const McqQuestionApiControllers = require('../controllers/Question/McqQuestionApiControllers');
+const QuestionnumbericalControllers = require('../controllers/Question/QuestionnumbericalControllers');
+const NumericalQuestionApiControllers = require('../controllers/Question/NumericalQuestionApiControllers');
+const QuestiontatalcountAnswerApiControllers = require('../controllers/Question/QuestiontatalcountAnswerApiControllers');
 const totalteam_member = require('../controllers/totalteam_member');
 const LogOutControllers = require('../controllers/LogOutControllers');
-const questiondatadeletedControlers = require('../controllers/questiondatadeletedControlers');
-const questiondatamcqdeletedControlers = require('../controllers/questiondatamcqdeletedControlers');
-const answerdatadeletedControlers = require('../controllers/answerdatadeletedControlers');
-const QuestiontatalAttamptAnswerApiControllers = require('../controllers/QuestiontatalAttamptAnswerApiControllers');
+const questiondatadeletedControlers = require('../controllers/Question/questiondatadeletedControlers');
+const questiondatamcqdeletedControlers = require('../controllers/Question/questiondatamcqdeletedControlers');
+const answerdatadeletedControlers = require('../controllers/Club/Technical/Answer/answerdatadeletedControlers');
+const QuestiontatalAttamptAnswerApiControllers = require('../controllers/Question/QuestiontatalAttamptAnswerApiControllers');
 const Totalparticipantdatadeletecontrollers = require('../controllers/Totalparticipantdatadeletecontrollers');
-const AdminRegistrationControllers = require('../controllers/AdminRegistrationControllers');
-const AdminLoginControllers = require('../controllers/AdminLoginControllers');
-const admindatacontroler = require('../controllers/admindatacontroler');
-const Authadmindatacontroler = require('../controllers/Authadmindatacontroler');
-const ClubCreateControllers = require('../controllers/ClubCreateControllers');
-const Adminforgetpasswordcontrollers = require('../controllers/Adminforgetpasswordcontrollers');
-const ParticipantMemberRegistration = require('../controllers/ParticipantMemberRegistration');
-const ClubDataApiControllers = require('../controllers/ClubDataApiControllers');
+const AdminRegistrationControllers = require('../controllers/Admin/AdminRegistrationControllers');
+const { AdminLoginControllers, AdminOtpVerification } = require('../controllers/Admin/AdminLoginControllers');
+const admindatacontroler = require('../controllers/Admin/admindatacontroler');
+const Authadmindatacontroler = require('../controllers/Admin/Authadmindatacontroler');
+const ClubCreateControllers = require('../controllers/Club/ClubCreateControllers');
+const Adminforgetpasswordcontrollers = require('../controllers/Admin/Adminforgetpasswordcontrollers');
+const ParticipantMemberRegistration = require('../controllers/Forms/ParticipantMemberRegistration');
+const ClubDataApiControllers = require('../controllers/Club/ClubDataApiControllers');
 const ParticipantmemberList = require('../controllers/ParticipantmemberList');
-const techFormcontroller = require('../controllers/techFormcontroller');
-const HackathonRegistrationController = require('../controllers/HackathonRegistrationController');
-const HackathonFormdatacontroller = require('../controllers/HackathonFormdatacontroller');
-const CodingFormdatacontroller = require('../controllers/CodingFormdatacontroller');
-const CodingRegistrationController = require('../controllers/CodingRegistrationController');
-const Codingparticipantdatadeletecontrollers = require('../controllers/Codingparticipantdatadeletecontrollers');
-const Quizparticipantdatadeletecontrollers = require('../controllers/Quizparticipantdatadeletecontrollers');
-const techFormdatacontroller = require('../controllers/techFormdatacontroller');
+const techFormcontroller = require('../controllers/Forms/techFormcontroller');
+const HackathonRegistrationController = require('../controllers/Club/Technical/Hackathon/HackathonRegistrationController');
+const HackathonFormdatacontroller = require('../controllers/Club/Technical/Hackathon/HackathonFormdatacontroller');
+const CodingFormdatacontroller = require('../controllers/Club/Technical/Coding/CodingFormdatacontroller');
+const CodingRegistrationController = require('../controllers/Club/Technical/Coding/CodingRegistrationController');
+const Codingparticipantdatadeletecontrollers = require('../controllers/Club/Technical/Coding/Codingparticipantdatadeletecontrollers');
+const Quizparticipantdatadeletecontrollers = require('../controllers/Club/Technical/Quiz/Quizparticipantdatadeletecontrollers');
+const techFormdatacontroller = require('../controllers/Forms/techFormdatacontroller');
 const UserdataMiddleware = require('../middleware/UserdataMiddleware');
 const AuthadmindataMiddleware = require('../middleware/AuthadmindataMiddleware');
+const ClubDataFindController = require('../controllers/Club/ClubDataFindController');
 const mailSend = require('../Mailmessage/mailSend');
 
 const multer = require('multer');
-const QuizRegistrationController = require('../controllers/QuizRegistrationController');
-const QuizFormdatacontroller = require('../controllers/QuizFormdatacontroller');
-const QuizParticipantUseIdDataControllers = require('../controllers/QuizParticipantUseIdDataControllers');
-const QuizCreatUserIdControllers = require('../controllers/QuizCreatUserIdControllers');
-const QuizAuthdataController = require('../controllers/QuizAuthdataController');
+const QuizRegistrationController = require('../controllers/Club/Technical/Quiz/QuizRegistrationController');
+const QuizFormdatacontroller = require('../controllers/Club/Technical/Quiz/QuizFormdatacontroller');
+const QuizParticipantUseIdDataControllers = require('../controllers/Club/Technical/Quiz/QuizParticipantUseIdDataControllers');
+const QuizCreatUserIdControllers = require('../controllers/Club/Technical/Quiz/QuizCreatUserIdControllers');
+const QuizAuthdataController = require('../controllers/Club/Technical/Quiz/QuizAuthdataController');
 const QuizAuthdataMiddleware = require('../middleware/QuizAuthdataMiddleware');
-const filterQuizDataRegistrationControllers = require('../controllers/filterQuizDataRegistrationControllers');
-const CodingCreatUserIdControllers = require('../controllers/CodingCreatUserIdControllers');
-const filterCodingDataRegistrationControllers = require('../controllers/filterCodingDataRegistrationControllers');
-const CodingAuthdataController = require('../controllers/CodingAuthdataController');
+const filterQuizDataRegistrationControllers = require('../controllers/FilterData/filterQuizDataRegistrationControllers');
+const CodingCreatUserIdControllers = require('../controllers/Club/Technical/Coding/CodingCreatUserIdControllers');
+const filterCodingDataRegistrationControllers = require('../controllers/FilterData/filterCodingDataRegistrationControllers');
+const CodingAuthdataController = require('../controllers/Club/Technical/Coding/CodingAuthdataController');
 const CodingAuthdataMiddleware = require('../middleware/CodingAuthdataMiddleware');
-const CodingLoginControllers = require('../controllers/CodingLoginControllers');
-const QuizQuestionAnswerControllers = require('../controllers/QuizQuestionAnswerControllers');
-const NumericalQuestionAnswerApiControllers = require('../controllers/NumericalQuestionAnswerApiControllers');
-const AllowAndDenyController = require('../controllers/AllowAndDenyController');
-const PermissionChangeController = require('../controllers/PermissionChangeController');
-const permissionupdates = require('../controllers/permissionupdates');
+const CodingLoginControllers = require('../controllers/Club/Technical/Coding/CodingLoginControllers');
+const QuizQuestionAnswerControllers = require('../controllers/Club/Technical/Quiz/QuizQuestionAnswerControllers');
+const NumericalQuestionAnswerApiControllers = require('../controllers/Club/Technical/Answer/NumericalQuestionAnswerApiControllers');
+const AllowAndDenyController = require('../controllers/Permissions/AllowAndDenyController');
+const PermissionChangeController = require('../controllers/Permissions/PermissionChangeController');
+const permissionupdates = require('../controllers/Permissions/permissionupdates');
+const LiveStreamController = require('../controllers/LiveStream/LiveStreamController');
+const LiveStreamControllerApi = require('../controllers/LiveStream/LiveStreamControllerApi');
+const GalleryImagesControllers = require('../controllers/Gallery/GalleryImagesControllers');
+const GalleryDataApiControllers = require('../controllers/Gallery/GalleryDataApiControllers');
+const HallOffameController = require('../controllers/HallOfFame/HallOffameController');
+const HallOfFameDataAddController = require('../controllers/HallOfFame/HallOfFameDataAddController');
+const ChartUserCreateControllerApi = require('../controllers/Chart/ChartUserCreateControllerApi');
+const ChartUserCreateController = require('../controllers/Chart/ChartUserCreateController');
+const ChartAuthUserMiddleware = require('../middleware/ChartAuthUserMiddleware');
+const ChartUserAuthDataController = require('../controllers/Chart/ChartUserAuthDataController');
+const ChartUserLoginController = require('../controllers/Chart/ChartUserLoginDataController');
+const ChartAi = require('../ai/ChartAi');
+const SetCompiler = require('../controllers/Compiler/SetCompiler');
+const AllQuizParticipantData = require('../controllers/Club/Technical/Quiz/AllQuizParticipantData');
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-router.get('/', mailSend);
-router.get('/users/data', UserdataMiddleware, UserdataControllers)
+router.get('/', HomeControllers);
+router.get('/api/users/data', UserdataMiddleware, UserdataControllers)
 router.get('/api/participant/member/list', ParticipantmemberList)
 router.get('/api/participant/question/answer', QuestionAnswerApiControllers)
 router.get('/api/participant/numerical/question/answer', NumericalQuestionAnswerApiControllers)
@@ -77,42 +93,56 @@ router.get('/api/total-teams/members/', totalteam_member)
 router.get('/api/admin/data', admindatacontroler)
 router.get('/api/auth/admin/data', AuthadmindataMiddleware, Authadmindatacontroler)
 router.get('/api/club/created/data/', ClubDataApiControllers)
+router.get('/api/gallery/images/data/', GalleryDataApiControllers)
 router.get('/api/team/register/data', techFormdatacontroller);
 router.get('/api/team/hackathon/register/data', HackathonFormdatacontroller);
 router.get('/api/participant/coding/register/data', CodingFormdatacontroller);
 router.get('/api/participant/quiz/register/data', QuizFormdatacontroller);
 router.get('/api/quiz/user-id/register/data', QuizParticipantUseIdDataControllers);
 router.get('/api/coding/user-id/register/data', QuizParticipantUseIdDataControllers);
-router.get('/participant/quiz/auth/data', QuizAuthdataMiddleware, QuizAuthdataController)
-router.get('/participant/coding/auth/data', CodingAuthdataMiddleware, CodingAuthdataController)
+router.get('/api/participant/quiz/auth/data', QuizAuthdataMiddleware, QuizAuthdataController)
+router.get('/api/participant/coding/auth/data', CodingAuthdataMiddleware, CodingAuthdataController)
+router.get('/api/live-stream/data', LiveStreamControllerApi)
+router.get('/api/club/data/url', ClubDataFindController)
+router.get('/api/government-engineering-college-siwan/hall-of-fame/club/data', HallOffameController)
+router.get('/api/v1/government-engineering-college-siwan/community/chart/user/data', ChartUserCreateControllerApi)
+router.get('/api/v1/government-engineering-college-siwan/community/chart/auth/data/', ChartAuthUserMiddleware, ChartUserAuthDataController)
+router.get('/api/v1/all/quiz/participant/data',AllQuizParticipantData)
 
+router.post('/api/v1//government-engineering-college-siwan/code-compiler', SetCompiler)
+router.post('/api/v1/government-engineering-college-siwan/genrated-ai', ChartAi);
+router.post('/api/v1/government-engineering-college-siwan/community/chart/user/data/create', ChartUserCreateController)
+router.post('/api/v1/government-engineering-college-siwan/community/chart/auth/login/', ChartUserLoginController)
+router.post('/api/permission/create', PermissionChangeController);
+router.post('/api/participant/bgmi/tech/form', techFormcontroller);
+router.post('/api/participant/hackathon/tech/form', HackathonRegistrationController);
+router.post('/api/participant/coding/tech/form', upload.single('file'), CodingRegistrationController);
+router.post('/api/participant/quiz/tech/form', upload.single('file'), QuizRegistrationController);
+router.post('/api/participant/quiz/user-id/tech/form', upload.single('file'), QuizCreatUserIdControllers);
+router.post('/api/participant/coding/user-id/tech/form', upload.single('file'), CodingCreatUserIdControllers);
 
-router.post('/permission/change', PermissionChangeController);
-router.post('/participant/bgmi/tech/form', techFormcontroller);
-router.post('/participant/hackathon/tech/form', HackathonRegistrationController);
-router.post('/participant/coding/tech/form', upload.single('file'), CodingRegistrationController);
-router.post('/participant/quiz/tech/form', upload.single('file'), QuizRegistrationController);
-router.post('/participant/quiz/user-id/tech/form', upload.single('file'), QuizCreatUserIdControllers);
-router.post('/participant/coding/user-id/tech/form', upload.single('file'), CodingCreatUserIdControllers);
-
+router.post('/api/livestream/schema', LiveStreamController);
 router.post('/api/participant/quiz/register/data/filter', filterQuizDataRegistrationControllers);
 router.post('/api/participant/coding/register/data/filter', filterCodingDataRegistrationControllers);
-router.post('/participants/registration', RegistrationControllers);
-router.post('/participants/member/registration', ParticipantMemberRegistration);
-router.post('/admin/registration', AdminRegistrationControllers);
-router.post('/coding/login', CodingLoginControllers);
-router.post('/quiz/login', QuizLoginControllers);
-router.post('/admin/login', AdminLoginControllers);
-router.post('/coding-contest/api/answer/participant', QuestionAnswerControllers)
-router.post('/quiz-contest/api/answer/participant', QuizQuestionAnswerControllers)
-router.post('/coding-contest/api/question-mcq/', QuestionmcqControllers)
-router.post('/contest/api/question-numerical/', QuestionnumbericalControllers)
-router.post('/club/create/api/data/', upload.single('contest_poster'), ClubCreateControllers)
+router.post('/api/participants/registration', RegistrationControllers);
+router.post('/api/participants/member/registration', ParticipantMemberRegistration);
+router.post('/api/admin/registration', AdminRegistrationControllers);
+router.post('/api/coding/login', CodingLoginControllers);
+router.post('/api/quiz/login', QuizLoginControllers);
+router.post('/api/admin/otp/verification/login', AdminOtpVerification);
+router.post('/api/admin/login', AdminLoginControllers);
+router.post('/api/coding-contest/api/answer/participant', QuestionAnswerControllers)
+router.post('/api/quiz-contest/api/answer/participant', QuizQuestionAnswerControllers)
+router.post('/api/coding-contest/api/question-mcq/', QuestionmcqControllers)
+router.post('/api/contest/api/question-numerical/', QuestionnumbericalControllers)
+router.post('/api/club/create/api/data/', upload.single('contest_poster'), ClubCreateControllers)
+router.post('/api/gallery/images/add/data/', upload.single('contest_poster'), GalleryImagesControllers)
+router.post('/api/government-engineering-college-siwan/hall-of-fame/club/Create', upload.single('contest_poster'), HallOfFameDataAddController)
 
 
-router.put('/forget/password/', forgetpasswordcontrollers)
-router.put('/permission/updates/:id', permissionupdates)
-router.put('/admin/forget/password/', Adminforgetpasswordcontrollers)
+router.put('/api/forget/password/', forgetpasswordcontrollers)
+router.put('/api/permission/updates/:id', permissionupdates)
+router.put('/api/admin/forget/password/', Adminforgetpasswordcontrollers)
 
 
 router.delete('/api/answer/delete/id/:id', answerdatadeletedControlers)

@@ -19,14 +19,14 @@ const QuestionAnswerDataSchema = new database.Schema(
       lowercase: true,
       trim: true,
     },
-    answer: {
-      type: String,
-      lowercase: true,
-      trim: true,
-    },
+    answer: [],
     correctquestionanswer: {
       type: String,
       trim: true
+    },
+    attempt: {
+      type: Boolean,
+      default: false
     },
     submittime: {
       type: Array,

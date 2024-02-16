@@ -1,5 +1,9 @@
 const database = require('../db/connect');
 const QuestionDataSchemaMcq = new database.Schema({
+    id: {
+        type: Number,
+        default: 1
+    },
     questionname: {
         type: String,
         lowarecase: true,
@@ -9,33 +13,35 @@ const QuestionDataSchemaMcq = new database.Schema({
         type: Number,
         trim: true
     },
-    option1: {
-        type: String,
-        lowarecase: true,
-        trim: true
+    Submit: {
+        type: Boolean,
+        default: false
     },
-    option2: {
-        type: String,
-        lowarecase: true,
-        trim: true
-    },
-    option3: {
-        type: String,
-        lowarecase: true,
-        trim: true
-    },
-    option4: {
-        type: String,
-        lowarecase: true,
-        trim: true
-    },
+    options: [
+        {
+            type: Object,
+            lowarecase: true,
+            trim: true
+
+        }]
+    ,
     mcqanswer: {
         type: String,
         lowarecase: true,
         trim: true
     }
 }, { timestamps: true })
+QuestionDataSchemaMcq.pre("save", async function (next) {
+    try {
+        let docs = this;
+        const id = await database.model("Question_Mcq", QuestionDataSchemaMcq).countDocuments();
+        docs.id = id + 1;
+        next();
+    } catch (error) {
+        next();
+    }
+});
 
-const QuestionDataModelMcq = new database.model('Question-Mcq', QuestionDataSchemaMcq);
+const QuestionDataModelMcq = new database.model('Question_Mcq', QuestionDataSchemaMcq);
 
 module.exports = QuestionDataModelMcq;

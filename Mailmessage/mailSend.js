@@ -1,35 +1,44 @@
-const AWS = require('aws-sdk');
-const ses = new AWS.SES({ region: 'your-region' });
+const nodemailer = require('nodemailer');
+const mailSend = async (email,message,subject) => {
+  try {
+    
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: process.env.MAILEMAIL,
+        pass: process.env.MAILPASSWORD,
+      },
+    });
+    await transporter.sendMail({
+      from: {
+        name: "InnovateGecSiwan",
+        address: process.env.MAILEMAIL
+      },
+      to: [email],
+      subject: `${subject}`,
+      html: `    <div style="border: 1px solid #c2d7e3; border-radius: 10px; width: 400px; height: auto; padding:20px;">
+      <h1
+                style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #000000; font-size: 24px;">
+          InnovateGecSiwan</h1>
+      <h2
+          style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #000000; font-size: 16px; font-weight: 500;">${subject}</h2>
+      <h4
+          style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #000000; font-size: 12px; font-weight: 500;">${email}</h4>
+      <div style="padding: 20px;">
+          <p
+              style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 13px; font-weight: 400; color: #000000;">${message}</p>
+      </div>
+    
+  </div>`,
+    });
 
-const mailSend = async (req, res) => {
-    const params = {
-        Destination: {
-          ToAddresses: ['vikashjjp728@gmail.com'],
-        },
-        Message: {
-          Body: {
-            Text: {
-              Data: 'This is the email body.',
-            },
-            Html: {
-              Data: '<b>This is the HTML body.</b>',
-            },
-          },
-          Subject: {
-            Data: 'Test Email from Amazon SES',
-          },
-        },
-        Source: '',
-      };
-      
-      ses.sendEmail(params, (err, data) => {
-        if (err) {
-          console.error(err);
-        } else {
-          console.log('Email sent:', data);
-        }
-      });
-      
+  } catch (error) {
+
+    console.log('some technical issue ');
+  }
 
 }
 
