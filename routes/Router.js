@@ -75,6 +75,10 @@ const ChartUserLoginController = require('../controllers/Chart/ChartUserLoginDat
 const ChartAi = require('../ai/ChartAi');
 const SetCompiler = require('../controllers/Compiler/SetCompiler');
 const AllQuizParticipantData = require('../controllers/Club/Technical/Quiz/AllQuizParticipantData');
+const ClubFacuiltyInchargeAdd = require('../controllers/Club/ClubFacuiltyInchargeAdd');
+const ClubFacuiltyInchargeDataFetch = require('../controllers/Club/ClubFacuiltyInchargeDataFetch');
+const WinnerParticipantAdd = require('../controllers/Club/event/WinnerParticipantAdd');
+const CurrentYearWinnerParticipant = require('../controllers/Club/event/CurrentYearWinnerParticipant');
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
@@ -107,9 +111,11 @@ router.get('/api/club/data/url', ClubDataFindController)
 router.get('/api/government-engineering-college-siwan/hall-of-fame/club/data', HallOffameController)
 router.get('/api/v1/government-engineering-college-siwan/community/chart/user/data', ChartUserCreateControllerApi)
 router.get('/api/v1/government-engineering-college-siwan/community/chart/auth/data/', ChartAuthUserMiddleware, ChartUserAuthDataController)
-router.get('/api/v1/all/quiz/participant/data',AllQuizParticipantData)
+router.get('/api/v1/all/quiz/participant/data', AllQuizParticipantData)
+router.get('/api/club/facuilty/incharge/:clubId', ClubFacuiltyInchargeDataFetch)
+router.get('/api/event/winner/participant/', CurrentYearWinnerParticipant)
 
-router.post('/api/v1//government-engineering-college-siwan/code-compiler', SetCompiler)
+router.post('/api/v1/government-engineering-college-siwan/code-compiler', SetCompiler)
 router.post('/api/v1/government-engineering-college-siwan/genrated-ai', ChartAi);
 router.post('/api/v1/government-engineering-college-siwan/community/chart/user/data/create', ChartUserCreateController)
 router.post('/api/v1/government-engineering-college-siwan/community/chart/auth/login/', ChartUserLoginController)
@@ -120,6 +126,8 @@ router.post('/api/participant/coding/tech/form', upload.single('file'), CodingRe
 router.post('/api/participant/quiz/tech/form', upload.single('file'), QuizRegistrationController);
 router.post('/api/participant/quiz/user-id/tech/form', upload.single('file'), QuizCreatUserIdControllers);
 router.post('/api/participant/coding/user-id/tech/form', upload.single('file'), CodingCreatUserIdControllers);
+router.post('/api/club/facuilty/incharge/create', upload.single('facuilty_incharge_avatar'), ClubFacuiltyInchargeAdd)
+router.post('/api/event/winner/perticipant/add', upload.single('winner_Participant_Avtar'), WinnerParticipantAdd)
 
 router.post('/api/livestream/schema', LiveStreamController);
 router.post('/api/participant/quiz/register/data/filter', filterQuizDataRegistrationControllers);
@@ -135,7 +143,7 @@ router.post('/api/coding-contest/api/answer/participant', QuestionAnswerControll
 router.post('/api/quiz-contest/api/answer/participant', QuizQuestionAnswerControllers)
 router.post('/api/coding-contest/api/question-mcq/', QuestionmcqControllers)
 router.post('/api/contest/api/question-numerical/', QuestionnumbericalControllers)
-router.post('/api/club/create/api/data/', upload.single('contest_poster'), ClubCreateControllers)
+router.post('/api/club/create/api/data/', upload.single("contest_poster"), ClubCreateControllers)
 router.post('/api/gallery/images/add/data/', upload.single('contest_poster'), GalleryImagesControllers)
 router.post('/api/government-engineering-college-siwan/hall-of-fame/club/Create', upload.single('contest_poster'), HallOfFameDataAddController)
 

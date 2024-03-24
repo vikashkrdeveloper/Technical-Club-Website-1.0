@@ -1,4 +1,4 @@
-const database = require('../../../../model/QuestionAnswerDataSchema');
+const database = require('../../../../model/QuestionNumericalAnswer');
 const answerdatadeletedControlers = async (req, res) => {
     try {
         const id = req.params.id;

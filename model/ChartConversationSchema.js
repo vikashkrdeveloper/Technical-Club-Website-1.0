@@ -12,6 +12,7 @@ const ChartConversationSchema = new database.Schema({
         default: []
 
     }]
+    
 }, { timestamps: true });
 // ChartConversationSchema.pre('save', function (next) {
 //     let chart = this;

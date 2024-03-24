@@ -19,15 +19,26 @@ const QuestionNumericalAnswerDataSchema = new database.Schema(
             lowercase: true,
             trim: true,
         },
-        answer: {
-            type: String,
-            lowercase: true,
-            trim: true,
-        },
         submittime: {
             type: Array,
             trim: true,
         },
+        branch: {
+            type: String,
+            lowercase: true,
+            trim: true,
+        }, emailid: {
+            type: String,
+            lowercase: true,
+            trim: true,
+
+        }, year: {
+            type: String,
+            lowercase: true,
+            trim: true,
+        },
+        answer: [],
+
     },
     { timestamps: true }
 );

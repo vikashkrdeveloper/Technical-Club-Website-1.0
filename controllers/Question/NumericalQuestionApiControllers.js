@@ -5,8 +5,8 @@ const NumericalQuestionApiControllers = async (req, res) => {
         const finddata = await database.find();
         const data = [];
         finddata.forEach((element, index) => {
-            data.push({ _id: element._id, questionnumber: element.questionnumber, questionname: element.questionname });
 
+            data.push({ Attempt: false, MarkforReview: false, _id: element._id, questionnumber: element.questionnumber, questionname: element.questionname, code: `// Write a code here ${index + 1}\n\n` });
         })
         if (req.query.search) {
             const productdata = data.filter(product => product.questionname.includes(req.query.search))

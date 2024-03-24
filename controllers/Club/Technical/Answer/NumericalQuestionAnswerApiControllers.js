@@ -1,12 +1,8 @@
 const database = require('../../../../model/QuestionNumericalAnswer');
 const NumericalQuestionAnswerApiControllers = async (req, res) => {
     try {
-        const finddata = await database.find();
-        const data = [];
-        finddata.forEach((element) => {
-            data.push({ _id: element._id, questionid: element.questionid, username: element.username, userid: element.userid, questionname: element.questionname, submittime: element.submittime, answer: element.answer,questionnumber:element.questionnumber })
-        })
-        res.status(200).send(data);
+        const finddata = await database.find().select('-__v').select('-updatedAt').select('-createdAt');
+        res.status(200).send(finddata);
         return;
 
     } catch (error) {
