@@ -13,7 +13,7 @@ const WinnerParticipantAdd = async (req, res) => {
                     if (!winner_Participant_Verify) {
                         const InsertData = await AllEventWinnerModel({ winner_Participant_Name, winner_Participant_Branch, winner_Participant_Admission_Year, winner_Participant_Email_Id, winner_Participant_Mobile_Number, winner_Participant_Linkedin_Profile_Id, winner_Participant_Twitter_Profile_Id, winner_Participant_Event_Name, winner_Participant_Event_Year, winner_Participant_Event_Id, winner_Participant_Avtar: { data: winner_Participant_Avtar.buffer } })
                         await InsertData.save();
-                        res.status(200).json({ message: "Winner Participant Added Sucessfully", data: InsertData, status: 200 });
+                        res.status(200).json({ message: "Winner Participant Added Sucessfully", status: 200 });
                         return;
 
                     } else {

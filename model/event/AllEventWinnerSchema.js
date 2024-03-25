@@ -17,7 +17,8 @@ const AllEventWinnerSchema = new database.Schema({
         default: null
     },
     winner_Participant_Admission_Year: {
-        type: Number,
+        type: String,
+        lowercase: true,
         trim: true,
         default: null
     },
