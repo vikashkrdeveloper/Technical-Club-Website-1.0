@@ -79,6 +79,11 @@ const ClubFacuiltyInchargeAdd = require('../controllers/Club/ClubFacuiltyIncharg
 const ClubFacuiltyInchargeDataFetch = require('../controllers/Club/ClubFacuiltyInchargeDataFetch');
 const WinnerParticipantAdd = require('../controllers/Club/event/WinnerParticipantAdd');
 const CurrentYearWinnerParticipant = require('../controllers/Club/event/CurrentYearWinnerParticipant');
+const UserIdRequestControllers = require('../controllers/User/UserIdRequestControllers');
+const SiteIdRequestData = require('../controllers/User/SiteIdRequestData');
+const SiteIdRequestReject = require('../controllers/User/SiteIdRequestRejectData');
+const UserIdGeneratedController = require('../controllers/User/UserIdGeneratedController');
+const { StudentLoginControllers, StudentOtpVerification } = require('../controllers/User/StudentLoginControllers');
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
@@ -114,6 +119,8 @@ router.get('/api/v1/government-engineering-college-siwan/community/chart/auth/da
 router.get('/api/v1/all/quiz/participant/data', AllQuizParticipantData)
 router.get('/api/club/facuilty/incharge/:clubId', ClubFacuiltyInchargeDataFetch)
 router.get('/api/event/winner/participant/', CurrentYearWinnerParticipant)
+router.get('/api/site-id/request/', SiteIdRequestData)
+
 
 router.post('/api/v1/government-engineering-college-siwan/code-compiler', SetCompiler)
 router.post('/api/v1/government-engineering-college-siwan/genrated-ai', ChartAi);
@@ -128,6 +135,10 @@ router.post('/api/participant/quiz/user-id/tech/form', upload.single('file'), Qu
 router.post('/api/participant/coding/user-id/tech/form', upload.single('file'), CodingCreatUserIdControllers);
 router.post('/api/club/facuilty/incharge/create', upload.single('facuilty_incharge_avatar'), ClubFacuiltyInchargeAdd)
 router.post('/api/event/winner/perticipant/add', upload.single('winner_Participant_Avtar'), WinnerParticipantAdd)
+router.post('/api/college/student/request/college-student-id', upload.single('college_Id_Prof'), UserIdRequestControllers)
+router.post('/api/college/student/techkshitiz-student-id/genrated/:id', UserIdGeneratedController)
+router.post('/api/college/student/techkshitiz-student/login', StudentLoginControllers)
+router.post('/api/college/student/techkshitiz-student/otp/verification', StudentOtpVerification)
 
 router.post('/api/livestream/schema', LiveStreamController);
 router.post('/api/participant/quiz/register/data/filter', filterQuizDataRegistrationControllers);
@@ -159,6 +170,7 @@ router.delete('/api/question/type/mcq/delete/id/:id', questiondatamcqdeletedCont
 router.delete('/api/total/participant/delete/id/:id', Totalparticipantdatadeletecontrollers)
 router.delete('/api/coding/participant/delete/id/:id', Codingparticipantdatadeletecontrollers)
 router.delete('/api/quiz/participant/delete/id/:id', Quizparticipantdatadeletecontrollers)
+router.delete('/api/college/student/request/reject/:id', SiteIdRequestReject)
 
 router.all('*', ErrorControllers);
 

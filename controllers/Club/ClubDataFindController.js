@@ -1,4 +1,4 @@
-const database = require('../../model/ClubCreateSchema');
+const database = require('../../model/Club/ClubCreateSchema');
 const ClubDataFindController = async (req, res) => {
     try {
 
